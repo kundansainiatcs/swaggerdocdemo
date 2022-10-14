@@ -57,7 +57,7 @@ servers:
     url: https://virtserver.swaggerhub.com/KUNDANSAINIPOC/Book-Lifecycle/1.0.1
 components:
   ## Reusable Schemas/Models ##
-  schemas:
+ schemas:
     Book:
       description: This is the schema defination for book model
       type: object
@@ -79,7 +79,7 @@ components:
         authorName:
           type: string
           example: Robert
-    Error:
+  Error:
       type: object
       properties:
         code:

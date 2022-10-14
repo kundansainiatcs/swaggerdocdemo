@@ -1,0 +1,54 @@
+openapi: 3.0.0
+info:
+ version: 1.0.0
+ title: schema-collection
+ description: This contains all the schemas defined commonly across the organization
+paths: {}  
+components:
+  ## Reusable Schemas/Models ##
+ schemas:
+  Book:
+   description: This is the schema defination for book model
+   type: object
+      required:
+        - isbnNumber
+        - authorName
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 12345
+          readOnly: true
+        name:
+          type: string
+          example: rich dad poor dad
+        isbnNumber:
+          type: string
+          example: ABC123XY
+        authorName:
+          type: string
+          example: Robert
+  Error:
+      type: object
+      properties:
+        code:
+          type: string
+        message:
+          type: string
+      required:
+        - code
+        - message
+  Author:
+      description: This is the schema defination for author model
+      type: object
+      required:
+        - authorName
+      properties:
+        id:
+          type: integer
+          format: int64
+          example: 12345
+          readOnly: true
+        authorName:
+          type: string
+          example: Robert

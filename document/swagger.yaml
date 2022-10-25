@@ -1,0 +1,45 @@
+openapi: 3.0.0
+info:
+  version: 1.0.5
+  title: Book-Lifecycle-APIs
+  description: This APIs manage all the different operations related to Book lifecycle
+  contact:
+    email: kundan.saini@gmail.com
+tags:
+  - name: Book Master
+    description: Everything related to a book lifecycle
+paths:
+  /book:
+    get:
+      summary: Find all the books based on book status
+      description: Status could be published unpublished discontinued
+      operationId: findBooksByStatus
+      parameters:
+        - $ref: 'https://api.swaggerhub.com/domains/KUNDANSAINI/Parameter-Store/1.0.0#/components/parameters/bookstatus'
+      responses:
+        '200':
+          description: successfully able to fetch books with requested status
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: 'https://api.swaggerhub.com/domains/KUNDANSAINI/Schema-Store/1.0.0#/components/schemas/Book'
+              examples:
+                book:
+                  $ref: 'https://api.swaggerhub.com/domains/KUNDANSAINI/Schema-Store/1.0.0#/components/examples/Book'
+        '400':
+          $ref: 'https://api.swaggerhub.com/domains/KUNDANSAINI/Common-Response/1.0.0#/components/responses/BadRequest'
+    post:
+      summary: Save a new book record into the database.
+      operationId: saveBook
+      requestBody:
+        $ref: 'https://api.swaggerhub.com/domains/KUNDANSAINI/Request-Bodies/1.0.0#/components/requestBodies/Book'
+      responses:
+        '201':
+          $ref: 'https://api.swaggerhub.com/domains/KUNDANSAINI/Common-Response/1.0.0#/components/responses/Created'
+        '400':
+          $ref: 'https://api.swaggerhub.com/domains/KUNDANSAINI/Common-Response/1.0.0#/components/responses/BadRequest' 
+servers:
+  - description: SwaggerHub API Auto Mocking
+    url: https://virtserver.swaggerhub.com/KUNDANSAINIPOC/Book-Lifecycle/1.0.5
